@@ -11,9 +11,9 @@ class ScheduledJobs {
     @Scheduled(fixedDelay = 15 * 60 * 1000)
     fun scheduleSubscriptionTypeChangingJob() {
         val restTemplate = RestTemplate()
-        val forObject =
-            restTemplate.getForObject("https://rinats-translator-bot.herokuapp.com/dont-sleep", String::class.java)
+        restTemplate.getForObject("https://rinats-translator-bot.herokuapp.com/dont-sleep", String::class.java)
         println("Запрос отправлен на rinats_translator_bot")
-        println(forObject)
+        restTemplate.getForObject("http://app-for-joy.herokuapp.com/", String::class.java)
+        println("Запрос отправлен на app-for-joy")
     }
 }
